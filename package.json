@@ -1,0 +1,14 @@
+{
+  "name": "lation",
+  "private": "true",
+  "version": "1.0.0",
+  "description": "The monorepo for lation frontend",
+  "workspaces": [
+    "packages/*"
+  ],
+  "author": "gocreating",
+  "license": "MIT",
+  "devDependencies": {
+    "next-transpile-modules": "^6.0.0"
+  }
+}
