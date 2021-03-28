@@ -1,0 +1,39 @@
+{
+  "site": {
+    "title": "Lation",
+    "description": "專為懶惰的你打造的自動化平台",
+    "keywords": "懶人,生活,自動化,工作站,懶人自動化,懶人工作站,生活自動化,生活工作站"
+  },
+  "navbar": {
+    "products": "產品",
+    "support": "支援"
+  },
+  "products": {
+    "title": "產品",
+    "converter": {
+      "title": "免費線上轉換服務",
+      "description": "史上最方便的免費線上轉換服務"
+    },
+    "stock": {
+      "title": "股票精靈",
+      "description": "台灣股票市場小精靈，輔助簡化您瑣碎的股市操作"
+    }
+  },
+  "support": {
+    "title": "支援",
+    "description": "請透過以下信箱提供我們意見回饋：<a href=\"mailto:{{email}}\">{{email}}</a>"
+  },
+  "status": {
+    "title": "服務狀態",
+    "description": "請見<a href=\"{{href}}\" target=\"_blank\">產品服務狀態總覽</a>"
+  },
+  "404": {
+    "title": "404",
+    "description": "找不到頁面"
+  },
+  "error": {
+    "title": "錯誤",
+    "description": "發生無法預期的錯誤"
+  },
+  "visit": "瀏覽"
+}

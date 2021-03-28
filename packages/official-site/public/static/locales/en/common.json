@@ -1,0 +1,39 @@
+{
+  "site": {
+    "title": "Lation",
+    "description": "An automation platform designed for you lazy guys",
+    "keywords": "Lazy,Life,Automation,Station,Lazy Automation,Lazy Station,Life Automation,Life Station"
+  },
+  "navbar": {
+    "products": "Products",
+    "support": "Support"
+  },
+  "products": {
+    "title": "Products",
+    "converter": {
+      "title": "Free Online Converter",
+      "description": "The most handy online converter ever for free."
+    },
+    "stock": {
+      "title": "Stock Wizard",
+      "description": "A stock wizard for Taiwan market, automating your routine stock operation."
+    }
+  },
+  "support": {
+    "title": "Support",
+    "description": "Please give us feedback through the following email: <a href=\"mailto:{{email}}\">{{email}}</a>"
+  },
+  "status": {
+    "title": "Service Status",
+    "description": "Please see <a href=\"{{href}}\" target=\"_blank\">Service Status Overview</a>"
+  },
+  "404": {
+    "title": "404",
+    "description": "This page could not be found."
+  },
+  "error": {
+    "title": "Error",
+    "description": "Something weng wrong."
+  },
+  "visit": "Visit"
+}
