@@ -21,3 +21,7 @@ Install dependencies
 ```
 yarn workspace @lation/components add <package-name>
 ```
+
+## Deploy on Vercel
+
+TBD
