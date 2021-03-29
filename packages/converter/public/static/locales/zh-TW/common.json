@@ -1,0 +1,43 @@
+{
+  "site": {
+    "titleSuffix": " | 免費線上轉換服務",
+    "title": "免費線上轉換服務",
+    "description": "史上最方便的免費線上轉換服務",
+    "keywords": "溫度轉換,Base64文字轉換,Base64編碼解碼,免費線上轉換器,免費線上轉換服務"
+  },
+  "navbar": {
+    "toggle": {
+      "bottom": "選擇轉換服務"
+    },
+    "title": "線上轉換",
+    "common": "常用轉換器",
+    "base64": "Base64編碼解碼",
+    "temperature": "溫度轉換"
+  },
+  "footer": {
+    "poweredBy": "<brand>Lation</brand> 製作"
+  },
+  "home": {
+    "title": "線上轉換",
+    "description": "史上最方便的免費線上轉換服務"
+  },
+  "base64": {
+    "title": "Base64編碼解碼",
+    "decoded": "原文",
+    "encoded": "Base64 編碼",
+    "placeholder": "直接輸入或貼上即可轉換"
+  },
+  "temperature": {
+    "title": "溫度轉換",
+    "celsius": "攝氏",
+    "fahrenheit": "華氏"
+  },
+  "404": {
+    "title": "404",
+    "description": "找不到頁面"
+  },
+  "error": {
+    "title": "錯誤",
+    "description": "發生無法預期的錯誤"
+  }
+}

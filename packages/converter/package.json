@@ -1,0 +1,14 @@
+{
+  "name": "converter",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "js-base64": "^3.6.0",
+    "next": "10.0.4"
+  }
+}
