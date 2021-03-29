@@ -4,7 +4,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
+    "date-fns": "^2.19.0",
     "immutable": "^4.0.0-rc.12",
+    "lodash": "^4.17.21",
     "next-redux-wrapper": "^6.0.2",
     "react-redux": "^7.2.3",
     "redux": "^4.0.5",
