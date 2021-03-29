@@ -13,7 +13,8 @@ npx create-next-app packages/my-awesome-app
 Launch apps
 
 ```
-yarn --cwd packages/my-awesome-app dev
+yarn --cwd packages/official-site dev
+yarn --cwd packages/stock dev
 ```
 
 Install dependencies
