@@ -14,6 +14,7 @@ Launch apps
 
 ```
 yarn --cwd packages/official-site dev
+yarn --cwd packages/converter dev
 yarn --cwd packages/stock dev
 ```
 
