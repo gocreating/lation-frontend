@@ -1,4 +1,4 @@
-const withTM = require('next-transpile-modules')(['@lation/components'])
+const withTM = require('next-transpile-modules')(['@lation/components', '@lation/utils'])
 const { nextI18NextRewrites } = require('next-i18next/rewrites')
 
 const localeSubpaths = {
