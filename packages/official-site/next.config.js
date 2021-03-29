@@ -7,7 +7,6 @@ const localeSubpaths = {
 }
 
 module.exports = withTM({
-  target: 'serverless',
   rewrites: async () => nextI18NextRewrites(localeSubpaths),
   publicRuntimeConfig: {
     localeSubpaths,
