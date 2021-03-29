@@ -1,3 +1,3 @@
-# Lation Stock Frontend
+# Lation Stock
 
 https://stock.lation.app
