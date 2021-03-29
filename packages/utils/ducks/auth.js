@@ -1,5 +1,7 @@
 import { fromJS } from 'immutable'
 
+const API_HOST = process.env.NEXT_PUBLIC_API_HOST
+
 /**
  * Actions
  */
@@ -61,7 +63,7 @@ export const getUser = (onSuccess, onFail) => async (dispatch) => {
   dispatch(getUserRequest());
   let res
   try {
-    res = await fetch(`${process.env.API_HOST}/me`, { credentials: 'include' })
+    res = await fetch(`${API_HOST}/me`, { credentials: 'include' })
     if (res.status === 200) {
       const { data } = await res.json()
       dispatch(setAuth(data))
@@ -81,7 +83,7 @@ export const logout = () => async (dispatch) => {
   dispatch(logoutRequest())
   let res
   try {
-    res = await fetch(`${process.env.API_HOST}/logout`, { method: 'POST', credentials: 'include' })
+    res = await fetch(`${API_HOST}/logout`, { method: 'POST', credentials: 'include' })
     dispatch(logoutSuccess(res))
   } catch (err) {
     dispatch(logoutFail(err, res))
