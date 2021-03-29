@@ -1,3 +1,3 @@
-# Lation Coin Frontend
+# Lation Coin
 
 https://coin.lation.app
