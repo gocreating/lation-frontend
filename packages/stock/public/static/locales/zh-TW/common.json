@@ -1,0 +1,91 @@
+{
+  "site": {
+    "titleSuffix": " | 股票精靈",
+    "title": "股票精靈",
+    "description": "台灣股票市場小精靈，輔助簡化您瑣碎的股市操作",
+    "keywords": "股票精靈,股票資訊,即時,即時股票資訊"
+  },
+  "navbar": {
+    "title": "股票精靈",
+    "product": "產品",
+    "login": {
+      "title": "登入",
+      "dropdown": {
+        "line": "使用 Line 登入",
+        "google": "使用 Google 登入"
+      }
+    },
+    "user": {
+      "title": "我",
+      "dropdown": {
+        "subscription": "訂閱服務",
+        "logout": "登出"
+      }
+    }
+  },
+  "footer": {
+    "poweredBy": "<brand>Lation</brand> 製作"
+  },
+  "home": {
+    "title": "股票精靈",
+    "description": "台灣股票市場小精靈，輔助簡化您瑣碎的股市操作"
+  },
+  "product": {
+    "title": "我們的產品及價格方案",
+    "cta": {
+      "default": "立即取得",
+      "loginRequired": "立即取得（您必須登入才能取得）",
+      "purchased": "立即取得（您已經取得）"
+    }
+  },
+  "auth": {
+    "loginError": {
+      "title": "登入失敗",
+      "cta": "回到首頁"
+    }
+  },
+  "me": {
+    "subscription": {
+      "title": "我的訂閱服務",
+      "noSubscription": "您目前沒有訂閱服務。",
+      "table": {
+        "head": {
+          "product": "產品",
+          "plan": "方案",
+          "subscriptionStatus": "訂閱狀態"
+        },
+        "alert": {
+          "description": "您尚未與股票精靈成為 Line 好友，請掃描以下 QR 條碼或點擊圖片來加入好友才能正確接收通知。如果您已與股票精靈成為好友卻仍看見此訊息，請確認是否將股票精靈設為封鎖。",
+          "cta": "加朋友"
+        },
+        "checkbox": {
+          "label": {
+            "checked": "接收通知",
+            "unchecked": "暫停通知"
+          }
+        }
+      }
+    }
+  },
+  "404": {
+    "title": "404",
+    "description": "找不到頁面"
+  },
+  "error": {
+    "title": "錯誤",
+    "description": "發生無法預期的錯誤"
+  },
+  "productMap": {
+    "PTTWC": {
+      "title": "股市風向雲",
+      "plan": {
+        "BASIC": {
+          "title": "基本型",
+          "description": "與股票精靈成為 Line 好友，即可接收每日推播 PTT 盤中閒聊熱議的關鍵字詞",
+          "pricing": "完全免費",
+          "subscriptionLabel": "訂閱股市風向雲"
+        }
+      }
+    }
+  }
+}

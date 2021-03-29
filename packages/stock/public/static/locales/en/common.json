@@ -1,0 +1,91 @@
+{
+  "site": {
+    "titleSuffix": " | Stock Wizard",
+    "title": "Stock Wizard",
+    "description": "A stock wizard for Taiwan market, automating your routine stock operation",
+    "keywords": "Stock Wizard,Stock Information,Real Time,Real Time Stock Information"
+  },
+  "navbar": {
+    "title": "Stock Wizard",
+    "product": "Products",
+    "login": {
+      "title": "Login",
+      "dropdown": {
+        "line": "Login with Line",
+        "google": "Login with Google"
+      }
+    },
+    "user": {
+      "title": "Me",
+      "dropdown": {
+        "subscription": "Subscriptions",
+        "logout": "Logout"
+      }
+    }
+  },
+  "footer": {
+    "poweredBy": "Powered by <brand>Lation</brand>"
+  },
+  "home": {
+    "title": "Stock",
+    "description": "A stock wizard for Taiwan market, automating your routine stock operation."
+  },
+  "product": {
+    "title": "Our Producs and Plans",
+    "cta": {
+      "default": "Get It Now",
+      "loginRequired": "Get It Now (Login Required)",
+      "purchased": "Get It Now (You already got it)"
+    }
+  },
+  "auth": {
+    "loginError": {
+      "title": "Login Failed",
+      "cta": "Back to Homepage"
+    }
+  },
+  "me": {
+    "subscription": {
+      "title": "My Subscriptions",
+      "noSubscription": "You don't have subscriptions.",
+      "table": {
+        "head": {
+          "product": "Product",
+          "plan": "Plan",
+          "subscriptionStatus": "Subscription Status"
+        },
+        "alert": {
+          "description": "You are still not a friend of stock wizard's line official account. Please scan the QR code or click on the image to add stock wizard to friend so that you can receive notifications properly.",
+          "cta": "Add to Friend"
+        },
+        "checkbox": {
+          "label": {
+            "checked": "Receive notifications",
+            "unchecked": "Pause notifications"
+          }
+        }
+      }
+    }
+  },
+  "404": {
+    "title": "404",
+    "description": "This page could not be found."
+  },
+  "error": {
+    "title": "Error",
+    "description": "Something weng wrong."
+  },
+  "productMap": {
+    "PTTWC": {
+      "title": "Stock Wordcloud",
+      "plan": {
+        "BASIC": {
+          "title": "Basic",
+          "description": "Add friend with stock wizard's line official account. And you will receive notifications of PTT buzzwords every weekday.",
+          "pricing": "FREE",
+          "subscriptionLabel": "Subscribe to Stock Wordcloud"
+        }
+      }
+    }
+  }
+}
