@@ -60,6 +60,7 @@ const SettingPage = ({ t }) => {
   }
 
   const symbol_strategy = watch('bitfinex.funding_strategy.symbol_strategy') || {}
+  const strategy_disabled = !watch('bitfinex.funding_strategy.enabled')
 
   return (
     <AppLayout title={t('me.setting.title')} noAd>
@@ -138,6 +139,7 @@ const SettingPage = ({ t }) => {
         {Object.entries(symbol_strategy).map(([symbol, strategy]) => {
           const { fields, remove, insert } = fUSDFieldArray
           const currency = symbol.substr(1)
+          const symbol_strategy_disabled = strategy_disabled || !watch(`bitfinex.funding_strategy.symbol_strategy.${symbol}.enabled`)
           return (
             <Form.Group key={symbol} as={Row}>
               <Form.Label column sm={12} md={2}>{currency} 策略</Form.Label>
@@ -152,9 +154,11 @@ const SettingPage = ({ t }) => {
                         render={({ onChange, value, ref }) => (
                           <Form.Check
                             ref={ref}
+                            disabled={strategy_disabled}
                             label={`啟用 ${currency} 的策略`}
                             id={`bitfinex.funding_strategy.symbol_strategy.${symbol}.enabled`}
                             type="switch"
+                            size="lg"
                             onChange={e => onChange(e.target.checked)}
                             checked={value}
                           />
@@ -173,6 +177,7 @@ const SettingPage = ({ t }) => {
                           render={({ onChange, value, ref }) => (
                             <Form.Control
                               ref={ref}
+                              disabled={symbol_strategy_disabled}
                               type="number" min={0} step={50}
                               onChange={e => onChange(parseFloat(e.target.value))}
                               value={value}
@@ -196,6 +201,7 @@ const SettingPage = ({ t }) => {
                           render={({ onChange, value, ref }) => (
                             <Form.Control
                               ref={ref}
+                              disabled={symbol_strategy_disabled}
                               type="number" min={50} step={50}
                               onChange={e => onChange(parseFloat(e.target.value))}
                               value={value}
@@ -219,6 +225,7 @@ const SettingPage = ({ t }) => {
                           render={({ onChange, value, ref }) => (
                             <Form.Control
                               ref={ref}
+                              disabled={symbol_strategy_disabled}
                               type="number" min={50} step={50}
                               onChange={e => onChange(parseFloat(e.target.value))}
                               value={value}
@@ -243,6 +250,7 @@ const SettingPage = ({ t }) => {
                             <InputGroup>
                               <Form.Control
                                 ref={ref}
+                                disabled={symbol_strategy_disabled}
                                 type="number" min={0} max={2555} step={0.2}
                                 onChange={e => onChange(parseFloat(e.target.value))}
                                 value={value}
@@ -271,6 +279,7 @@ const SettingPage = ({ t }) => {
                             <InputGroup>
                               <Form.Control
                                 ref={ref}
+                                disabled={symbol_strategy_disabled}
                                 type="number" min={0} max={2555} step={0.2}
                                 onChange={e => onChange(parseFloat(e.target.value))}
                                 value={value}
@@ -289,7 +298,12 @@ const SettingPage = ({ t }) => {
                   </Form.Group>
                   <hr />
                   {fields.length === 0 ? (
-                    <Button size="sm" variant="outline-secondary" onClick={() => insert(0, {})}>
+                    <Button
+                      size="sm"
+                      variant="outline-secondary"
+                      disabled={symbol_strategy_disabled}
+                      onClick={() => insert(0, {})}
+                    >
                       <i className="fas fa-plus" />
                       {' 新增天數規則'}
                     </Button>
@@ -299,10 +313,25 @@ const SettingPage = ({ t }) => {
                       return (
                         <Form.Group key={field.id} as={Row}>
                           <Col lg={12} xl={2}>
-                            <DropdownButton title={`編輯規則 #${i + 1}`} variant="outline-secondary" drop="down" size="sm">
-                              <Dropdown.Item onClick={() => insert(i, {})}>向上新增天數規則</Dropdown.Item>
-                              <Dropdown.Item onClick={() => insert(i + 1, {})}>向下新增天數規則</Dropdown.Item>
-                              <Dropdown.Item onClick={() => remove(i)}>刪除此規則</Dropdown.Item>
+                            <DropdownButton
+                              title={`規則 #${i + 1}`}
+                              variant="outline-secondary"
+                              drop="down"
+                              size="sm"
+                              disabled={symbol_strategy_disabled}
+                            >
+                              <Dropdown.Item onClick={() => insert(i, {})}>
+                                <i className="fas fa-upload" />
+                                {' 在上方新增規則'}
+                              </Dropdown.Item>
+                              <Dropdown.Item onClick={() => insert(i + 1, {})}>
+                                <i className="fas fa-download" />
+                                {' 在下方新增規則'}
+                              </Dropdown.Item>
+                              <Dropdown.Item onClick={() => remove(i)}>
+                                <i className="fas fa-trash" />
+                                {' 刪除'}
+                              </Dropdown.Item>
                             </DropdownButton>
                           </Col>
 
@@ -319,6 +348,7 @@ const SettingPage = ({ t }) => {
                                   <InputGroup>
                                     <Form.Control
                                       ref={ref}
+                                      disabled={symbol_strategy_disabled}
                                       type="number" min={0} max={2555} step={0.2}
                                       onChange={e => onChange(parseFloat(e.target.value))}
                                       value={value}
@@ -347,6 +377,7 @@ const SettingPage = ({ t }) => {
                                   <InputGroup>
                                     <Form.Control
                                       ref={ref}
+                                      disabled={symbol_strategy_disabled}
                                       type="number" min={0} max={2555} step={0.2}
                                       onChange={e => onChange(parseFloat(e.target.value))}
                                       value={value}
@@ -374,6 +405,7 @@ const SettingPage = ({ t }) => {
                                 render={({ onChange, value, ref }) => (
                                   <Form.Control
                                     ref={ref}
+                                    disabled={symbol_strategy_disabled}
                                     type="number" min={2} max={120}
                                     onChange={e => onChange(parseInt(e.target.value))}
                                     value={value}
