@@ -1,15 +1,19 @@
+import styled from 'styled-components'
 import BSSpinner from 'react-bootstrap/Spinner'
 
+const SpinnerWrapper = styled.div`
+  padding: 1.5rem;
+`
+
 const Spinner = () => (
-  <div className="text-center" style={{ minHeight: 200 }}>
+  <SpinnerWrapper className="text-center">
     <BSSpinner
       animation="border"
       role="status"
-      style={{ marginTop: '2rem' }}
     >
       <span className="sr-only">Loading...</span>
     </BSSpinner>
-  </div>
+  </SpinnerWrapper>
 )
 
 export default Spinner
