@@ -56,8 +56,8 @@ const Navigation = ({ t }) => {
               </Link>
             </Nav>
             <Nav>
-              <Nav.Link onClick={() => i18n.changeLanguage('en')}>English</Nav.Link>
-              <Nav.Link onClick={() => i18n.changeLanguage('zh-TW')}>中文</Nav.Link>
+              {/* <Nav.Link onClick={() => i18n.changeLanguage('en')}>English</Nav.Link>
+              <Nav.Link onClick={() => i18n.changeLanguage('zh-TW')}>中文</Nav.Link> */}
               {isAuth ? (
                 <Nav.Link as={Button} variant="light" onClick={() => dispatch(logout())}>
                   {t('navbar.logout')}
