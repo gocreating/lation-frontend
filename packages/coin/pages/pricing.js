@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import ToggleButton from 'react-bootstrap/ToggleButton'
 import { selectors as authSelectors } from '@lation/utils/ducks/auth'
+import { listPaymentGateways, selectors as paymentSelectors } from '@lation/utils/ducks/payment'
 import { createOrder, selectors as orderSelectors } from '../ducks/order'
 import { listProducts, selectors as productSelectors } from '../ducks/product'
 import AppLayout from '../components/AppLayout'
@@ -40,11 +41,13 @@ const PricingPage = ({ t }) => {
   const dispatch = useDispatch()
   const isAuth = useSelector(authSelectors.getIsAuth)
   const products = useSelector(productSelectors.getProducts)
+  const paymentGateways = useSelector(paymentSelectors.getPaymentGateways)
   const listProductsMeta = useSelector(productSelectors.getListProductsMeta)
   const createOrderMata = useSelector(orderSelectors.getCreateOrderMeta)
   const [selectedPlans, setSeletedPlans] = useState([])
 
   useEffect(() => {
+    dispatch(listPaymentGateways())
     dispatch(listProducts())
   }, [])
 
@@ -63,7 +66,7 @@ const PricingPage = ({ t }) => {
     }
     const plan = selectedPlans[0]
     dispatch(createOrder(plan.id, (order) => {
-      router.push(`${API_HOST}/orders/${order.id}/charge`)
+      router.push(`${API_HOST}/orders/${order.id}/charge?payment_gateway_id=${paymentGateways[0].id}`)
     }, async (res) => {
       const { detail } = await res.json()
       alert(detail)
@@ -101,9 +104,17 @@ const PricingPage = ({ t }) => {
                       >
                       <h4>{t(`product:productMap.${product.code}.planMap.${plan.code}.title`)}</h4>
                       <p>{t(`product:productMap.${product.code}.planMap.${plan.code}.description`)}</p>
-                      <h5>
-                        <strong>{`${product.currency.code} ${plan.standard_price_amount}`}</strong>
-                      </h5>
+                      {plan.plan_prices.map(planPrice => {
+                        return (
+                          <h5 key={`${planPrice.currency.code}${planPrice.standard_price_amount}`}>
+                            <strong>
+                              {planPrice.standard_price_amount === 0
+                                ? t('product:free')
+                                : `${planPrice.currency.code} ${planPrice.standard_price_amount}`}
+                            </strong>
+                          </h5>
+                        )
+                      })}
                       <StyledToggleButton
                         type="checkbox"
                         variant="light"

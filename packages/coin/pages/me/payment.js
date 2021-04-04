@@ -55,6 +55,7 @@ const PaymentPage = ({ t, i18n }) => {
                   {subscriptions.map(subscription => {
                     const dueTime = parseISO(`${subscription.due_time}Z`)
                     const isDue = dueTime < new Date()
+                    const billed_amount = subscription.order_plan.order.payment.billed_amount
                     return (
                       <tr key={subscription.id}>
                         <td>
@@ -67,7 +68,7 @@ const PaymentPage = ({ t, i18n }) => {
                           {t(`product:productMap.${subscription.order_plan.plan.product.code}.planMap.${subscription.order_plan.plan.code}.title`)}
                         </td>
                         <td>
-                          {`${subscription.order_plan.plan.product.currency.code} ${subscription.order_plan.order.payment.total_billed_amount}`}
+                          {billed_amount === 0 ? t('product:free') : `${subscription.order_plan.order.payment.billed_currency.code} ${billed_amount}`}
                         </td>
                         <td>
                           {format(parseISO(`${subscription.subscribe_time}Z`), 'yyyy/MM/dd HH:mm:ss')}
