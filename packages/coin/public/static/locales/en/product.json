@@ -19,6 +19,7 @@
       }
     }
   },
+  "free": "Free",
   "choosePlan": {
     "cta": "Choose This Plan"
   },
