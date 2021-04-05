@@ -5,6 +5,7 @@ import zhTWLocale from 'date-fns/locale/zh-TW'
 import enUSLocale from 'date-fns/locale/en-US'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import Alert from 'react-bootstrap/Alert'
 import { listSubscriptions, selectors as productSelectors } from '../../ducks/product'
 import AppLayout from '../../components/AppLayout'
 import Card from '../../components/Card'
@@ -87,6 +88,11 @@ const PaymentPage = ({ t, i18n }) => {
           )}
         </Card>
       )}
+      <Alert variant="info">
+        {'信用卡付款完成即刻生效，如果您已完成付款卻查無儲值紀錄，請透過右下方即時對話服務或是寄信至 '}
+        <a href="mailto:support@lation.app">support@lation.app</a>
+        {' 聯繫客服人員。'}
+      </Alert>
     </AppLayout>
   )
 }
