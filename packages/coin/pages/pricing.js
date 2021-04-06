@@ -16,6 +16,10 @@ import Spinner from '../components/Spinner'
 import { withTranslation } from '../i18n'
 import { API_HOST } from '../utils/config'
 
+const ProductContainer = styled(Container)`
+  padding-top: 3rem;
+`
+
 const StyledContainer = styled(Container)`
   padding: 32px;
   border-radius: 4px;
@@ -76,11 +80,11 @@ const PricingPage = ({ t }) => {
   return (
     <AppLayout title={t('common:pricing.title')} titleSuffix={false} noAd>
       <h2 className="text-center">{t('common:pricing.title')}</h2>
-      <Container>
+      <ProductContainer>
         {listProductsMeta.isRequesting && (
           <Spinner />
         )}
-        {products.map(product => {
+        {products.sort((a, b) => (a.sequence - b.sequence)).map(product => {
           return (
             <div key={product.id}>
               <h3>
@@ -91,7 +95,7 @@ const PricingPage = ({ t }) => {
               </p>
               <hr />
               <Row>
-                {product.plans.map(plan => {
+                {product.plans.sort((a, b) => (a.sequence - b.sequence)).map(plan => {
                   const isActive = selectedPlans.find(p => p.code === plan.code) !== undefined
                   return (
                     <Col key={plan.id} lg={4}>
@@ -131,7 +135,7 @@ const PricingPage = ({ t }) => {
             </div>
           )
         })}
-      </Container>
+      </ProductContainer>
       <hr />
       <Container>
         <Button
