@@ -60,9 +60,9 @@ const Navigation = ({ t }) => {
                 <NavDropdown.Item href={`${API_HOST}/auth/line`}>
                   <i className="fab fa-line"></i> {t('navbar.login.dropdown.line')}
                 </NavDropdown.Item>
-                <NavDropdown.Item href={`${API_HOST}/auth/google`}>
+                {/* <NavDropdown.Item href={`${API_HOST}/auth/google`}>
                   <i className="fab fa-google"></i> {t('navbar.login.dropdown.google')}
-                </NavDropdown.Item>
+                </NavDropdown.Item> */}
               </DropdownButton>
             )}
           </Nav>
