@@ -1,5 +1,6 @@
 import { fromJS } from 'immutable'
-import { API_HOST } from '../utils/config'
+
+const API_HOST = process.env.NEXT_PUBLIC_API_HOST
 
 /**
  * Actions
@@ -74,6 +75,11 @@ const defaultState = {
  * Selectors
  */
 export const selectors = {
+  getGetLineFriendshipMeta(state) {
+    return fromJS(state.social)
+      .get('getLineFriendshipMeta')
+      .toJS()
+  },
   getLineIsFriend(state) {
     return fromJS(state.social)
       .getIn(['line', 'isFriend'])
