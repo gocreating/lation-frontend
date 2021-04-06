@@ -17,6 +17,10 @@ const StyledTh = styled.td`
   `}
 `
 
+export const Td = styled.td`
+  white-space: nowrap;
+`
+
 export const Th = ({ sortable, sortedDirection, children, ...rest }) => {
   return (
     <StyledTh sortable={sortable} {...rest}>
