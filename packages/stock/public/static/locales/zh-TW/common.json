@@ -34,8 +34,7 @@
     "title": "我們的產品及價格方案",
     "cta": {
       "default": "立即取得",
-      "loginRequired": "立即取得（您必須登入才能取得）",
-      "purchased": "立即取得（您已經取得）"
+      "loginRequired": "立即取得（您必須登入才能取得）"
     }
   },
   "auth": {
@@ -74,18 +73,5 @@
   "error": {
     "title": "錯誤",
     "description": "發生無法預期的錯誤"
-  },
-  "productMap": {
-    "PTTWC": {
-      "title": "股市風向雲",
-      "plan": {
-        "BASIC": {
-          "title": "基本型",
-          "description": "與股票精靈成為 Line 好友，即可接收每日推播 PTT 盤中閒聊熱議的關鍵字詞",
-          "pricing": "完全免費",
-          "subscriptionLabel": "訂閱股市風向雲"
-        }
-      }
-    }
   }
 }

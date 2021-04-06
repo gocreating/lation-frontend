@@ -34,8 +34,7 @@
     "title": "Our Producs and Plans",
     "cta": {
       "default": "Get It Now",
-      "loginRequired": "Get It Now (Login Required)",
-      "purchased": "Get It Now (You already got it)"
+      "loginRequired": "Get It Now (Login Required)"
     }
   },
   "auth": {
@@ -74,18 +73,5 @@
   "error": {
     "title": "Error",
     "description": "Something weng wrong."
-  },
-  "productMap": {
-    "PTTWC": {
-      "title": "Stock Wordcloud",
-      "plan": {
-        "BASIC": {
-          "title": "Basic",
-          "description": "Add friend with stock wizard's line official account. And you will receive notifications of PTT buzzwords every weekday.",
-          "pricing": "FREE",
-          "subscriptionLabel": "Subscribe to Stock Wordcloud"
-        }
-      }
-    }
   }
 }

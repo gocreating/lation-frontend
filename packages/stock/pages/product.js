@@ -7,7 +7,9 @@ import Container from 'react-bootstrap/Container'
 import Image from 'react-bootstrap/Image'
 import Row from 'react-bootstrap/Row'
 import { selectors as authSelectors } from '@lation/utils/ducks/auth'
-import { listProducts, selectors as productSelectors } from '../ducks/product'
+import { createOrder } from '@lation/utils/ducks/order'
+import { listPaymentGateways, selectors as paymentSelectors } from '@lation/utils/ducks/payment'
+import { listProducts, selectors as productSelectors } from '@lation/utils/ducks/product'
 import AppLayout from '../components/AppLayout'
 import { withTranslation } from '../i18n'
 import { API_HOST } from '../utils/config'
@@ -18,48 +20,34 @@ const ProductPage = ({ t }) => {
   const [userPlanIds, setUserPlanIds] = useState([])
   const isAuth = useSelector(authSelectors.getIsAuth)
   const products = useSelector(productSelectors.getProducts)
+  const paymentGateways = useSelector(paymentSelectors.getPaymentGateways)
 
-  useEffect(() => dispatch(listProducts()), [])
+  useEffect(() => {
+    dispatch(listPaymentGateways())
+    dispatch(listProducts())
+  }, [])
 
-  useEffect(async () => {
-    if (isAuth) {
-      const res = await fetch(`${API_HOST}/orders`, { credentials: 'include' })
-      const { data } = await res.json()
-      let planIds = []
-      data.forEach(order => {
-        order.order_plans.forEach(orderPlan => {
-          planIds.push(orderPlan.plan_id)
-        })
-      })
-      setUserPlanIds(planIds)
-    } else {
-      setUserPlanIds([])
+  const handleCreateOrder = async (plan) => {
+    if (!isAuth) {
+      alert('Please login first')
+      return
     }
-  }, [isAuth])
-
-  const handleCreateOrder = async (planId) => {
-    const res = await fetch(`${API_HOST}/orders`, {
-      method: 'POST',
-      credentials: 'include',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ plan_id: planId })
-    })
-    if (res.status === 200) {
-      router.push('/me/subscription')
-    } else {
+    dispatch(createOrder(plan.id, (order) => {
+      router.push(`${API_HOST}/orders/${order.id}/charge?payment_gateway_id=${paymentGateways[0].id}`)
+    }, async (res) => {
       const { detail } = await res.json()
       alert(detail)
-    }
+    }))
   }
 
   return (
-    <AppLayout title={t('product.title')}>
-      <h2 className="text-center">{t('product.title')}</h2>
+    <AppLayout title={t('common:product.title')}>
+      <h2 className="text-center">{t('common:product.title')}</h2>
       <Container style={{ marginTop: 20 }}>
         {products.map(product => (
           <div key={product.id}>
             <h3 style={{ marginTop: 48 }}>
-              {t(`productMap.${product.code}.title`)}
+              {t(`product:productMap.${product.code}.title`)}
             </h3>
             <hr />
             <Row>
@@ -74,22 +62,27 @@ const ProductPage = ({ t }) => {
                       />
                     </Col>
                     <Col md={12} lg={6}>
-                      <h4 style={{ marginTop: 16 }}>{t(`productMap.${product.code}.plan.${plan.code}.title`)}</h4>
-                      <p>{t(`productMap.${product.code}.plan.${plan.code}.description`)}</p>
-                      <p>
-                        <strong>
-                          {t(`productMap.${product.code}.plan.${plan.code}.pricing`)}
-                        </strong>
-                      </p>
+                      <h4 style={{ marginTop: 16 }}>{t(`product:productMap.${product.code}.planMap.${plan.code}.title`)}</h4>
+                      <p>{t(`product:productMap.${product.code}.planMap.${plan.code}.description`)}</p>
+                      {plan.plan_prices.map(planPrice => {
+                        return (
+                          <h5 key={`${planPrice.currency.code}${planPrice.standard_price_amount}`}>
+                            <strong>
+                              {planPrice.standard_price_amount === 0
+                                ? t('product:free')
+                                : `${planPrice.currency.code} ${planPrice.standard_price_amount}`}
+                            </strong>
+                          </h5>
+                        )
+                      })}
                       <Button
                         variant="primary"
                         size="lg"
-                        disabled={!isAuth || isOrderExist}
-                        onClick={() => handleCreateOrder(plan.id)}
+                        disabled={!isAuth}
+                        onClick={() => handleCreateOrder(plan)}
                       >
-                        {isAuth && !isOrderExist && t('product.cta.default')}
-                        {!isAuth && t('product.cta.loginRequired')}
-                        {isOrderExist && t('product.cta.purchased')}
+                        {isAuth && !isOrderExist && t('common:product.cta.default')}
+                        {!isAuth && t('common:product.cta.loginRequired')}
                       </Button>
                     </Col>
                   </React.Fragment>
@@ -104,7 +97,7 @@ const ProductPage = ({ t }) => {
 }
 
 ProductPage.getInitialProps = async () => ({
-  namespacesRequired: ['common'],
+  namespacesRequired: ['common', 'product'],
 })
 
-export default withTranslation('common')(ProductPage)
+export default withTranslation(['common', 'product'])(ProductPage)

@@ -1,0 +1,12 @@
+{
+  "title": "Payment Result",
+  "paymentSuccess": {
+    "title": "Payment Success",
+    "description": "Your payment is confirmed. Free plans will not be charged.",
+    "cta": "View Subscriptions"
+  },
+  "paymentError": {
+    "title": "Payment Failed",
+    "cta": "Retry"
+  }
+}

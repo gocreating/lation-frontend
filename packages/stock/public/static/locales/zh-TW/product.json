@@ -1,0 +1,15 @@
+{
+  "productMap": {
+    "PTTWC": {
+      "title": "股市風向雲",
+      "planMap": {
+        "BASIC": {
+          "title": "基本型",
+          "description": "與股票精靈成為 Line 好友，即可接收每日推播 PTT 盤中閒聊熱議的關鍵字詞",
+          "subscriptionLabel": "訂閱股市風向雲"
+        }
+      }
+    }
+  },
+  "free": "免費"
+}

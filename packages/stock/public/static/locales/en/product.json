@@ -1,0 +1,15 @@
+{
+  "productMap": {
+    "PTTWC": {
+      "title": "Stock Wordcloud",
+      "planMap": {
+        "BASIC": {
+          "title": "Basic",
+          "description": "Add friend with stock wizard's line official account. And you will receive notifications of PTT buzzwords every weekday.",
+          "subscriptionLabel": "Subscribe to Stock Wordcloud"
+        }
+      }
+    }
+  },
+  "free": "Free"
+}
