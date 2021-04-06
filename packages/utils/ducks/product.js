@@ -1,5 +1,6 @@
 import { fromJS } from 'immutable'
-import { API_HOST } from '../utils/config'
+
+const API_HOST = process.env.NEXT_PUBLIC_API_HOST
 
 /**
  * Actions

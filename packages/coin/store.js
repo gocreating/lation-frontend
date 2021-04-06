@@ -1,9 +1,9 @@
 import createStoreWrapper from '@lation/utils/createStoreWrapper'
 import authReducer from '@lation/utils/ducks/auth'
+import orderReducer from '@lation/utils/ducks/order'
 import paymentReducer from '@lation/utils/ducks/payment'
+import productReducer from '@lation/utils/ducks/product'
 import fundingReducer from './ducks/funding'
-import orderReducer from './ducks/order'
-import productReducer from './ducks/product'
 import reportReducer from './ducks/report'
 import userReducer from './ducks/user'
 
