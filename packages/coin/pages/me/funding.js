@@ -10,13 +10,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import Badge from 'react-bootstrap/Badge'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
+import Table, { Th } from '@lation/components/Table'
 import AppLayout from '../../components/AppLayout'
 import Button from '../../components/Button'
 import Card from '../../components/Card'
 import LoadFail from '../../components/LoadFail'
 import RefreshButton from '../../components/RefreshButton'
 import Spinner from '../../components/Spinner'
-import Table, { Th } from '../../components/Table'
 import {
   cancelBitfinexFundingOffer,
   getBitfinexWallets,

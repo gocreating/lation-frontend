@@ -7,11 +7,11 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Alert from 'react-bootstrap/Alert'
 import { listSubscriptions, selectors as productSelectors } from '@lation/utils/ducks/product'
+import Table, { Th } from '@lation/components/Table'
 import AppLayout from '../../components/AppLayout'
 import Card from '../../components/Card'
 import LoadFail from '../../components/LoadFail'
 import Spinner from '../../components/Spinner'
-import Table, { Th } from '../../components/Table'
 import { withTranslation } from '../../i18n'
 
 const PaymentPage = ({ t, i18n }) => {
